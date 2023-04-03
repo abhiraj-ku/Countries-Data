@@ -61,3 +61,12 @@ a {
 .country-card img {
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .countries-container {
+    justify-content: center;
+  }
+  .header-content .title {
+    font-size: 15px;
+  }
+}
