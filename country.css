@@ -3,3 +3,38 @@
   padding: 6px 24px;
   border-radius: 5px;
 }
+.country-details {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin-top: 64px;
+}
+.country-details img {
+  width: 40%;
+}
+.details-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  column-gap: 64px;
+  max-height: 180px;
+  flex-wrap: wrap;
+}
+.details-text p {
+  margin: 0;
+}
+@media (max-width: 964px) {
+  .country-details {
+    flex-direction: column;
+    margin-top: 32px;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .details-text {
+    max-height: unset;
+  }
+  .country-details img {
+    width: 100%;
+    max-width: 400px;
+  }
+}
