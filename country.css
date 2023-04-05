@@ -23,12 +23,15 @@
   display: flex;
   flex-direction: column;
   row-gap: 12px;
-  column-gap: 64px;
+  column-gap: 48px;
   max-height: 180px;
   flex-wrap: wrap;
 }
 .details-text p {
   margin: 0;
+}
+.details-text .lang {
+  min-width: 110px;
 }
 .border-countries {
   margin-top: 48px;
