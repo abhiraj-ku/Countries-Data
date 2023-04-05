@@ -2,6 +2,7 @@ const countriesContainer = document.querySelector(".countries-container");
 const filterByRegion = document.querySelector(".search-filter-container");
 const searchInput = document.querySelector(".search-container input");
 const themeChanger = document.querySelector(".theme-changer");
+const themeText = document.querySelector(".theme-text");
 
 let allCountriesData;
 fetch("https://restcountries.com/v3.1/all")
@@ -51,4 +52,21 @@ searchInput.addEventListener("input", (e) => {
 
 themeChanger.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+  let Theme;
+  if (themeChanger.firstElementChild.classList.contains("fa-moon")) {
+    themeChanger.firstElementChild.classList.replace("fa-moon", "fa-sun");
+    themeText.innerText = "Light Mode";
+    Theme = "DARK";
+  } else {
+    themeChanger.firstElementChild.classList.replace("fa-sun", "fa-moon");
+    Theme = "LIGHT";
+  }
+  localStorage.setItem("pageTheme", JSON.stringify(Theme));
 });
+
+let getTheme = JSON.parse(localStorage.getItem("pageTheme"));
+if (getTheme === "DARK") {
+  document.body.classList = "dark";
+} else {
+  document.body.classList.remove("dark");
+}

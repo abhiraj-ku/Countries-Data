@@ -10,6 +10,8 @@ const tld = document.querySelector(".tld");
 const language = document.querySelector(".language");
 const currency = document.querySelector(".currency");
 const borderCountries = document.querySelector(".border-countries");
+const themeChanger = document.querySelector(".theme-changer");
+const themeText = document.querySelector(".theme-text");
 
 fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
   .then((res) => res.json())
@@ -63,3 +65,23 @@ fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
     }
   });
 // console.log();
+themeChanger.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  let pageTheme;
+  if (themeChanger.firstElementChild.classList.contains("fa-moon")) {
+    themeChanger.firstElementChild.classList.replace("fa-moon", "fa-sun");
+    themeText.innerText = "Light Mode";
+    pageTheme = "Dark";
+  } else {
+    themeChanger.firstElementChild.classList.replace("fa-sun", "fa-moon");
+    pageTheme = "Light";
+    themeText.innerText = "Dark Mode";
+  }
+  localStorage.setItem("Theme", JSON.stringify(pageTheme));
+});
+
+let getTheme = JSON.parse(localStorage.getItem("Theme"));
+
+if (getTheme === "Dark") {
+  document.body.classList = "dark";
+}
